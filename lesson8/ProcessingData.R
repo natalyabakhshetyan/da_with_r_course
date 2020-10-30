@@ -27,3 +27,18 @@ qplot(rating, budget, data=moviesNoNa, size = (1.2))+
   stat_smooth(color='red', size = (2), se = F)
 
 
+# power transformations
+library(MASS)
+print(Animals[1:12,])
+
+qplot(brain, body, log = "xy", data=Animals)
+
+#split apply combine
+latitude.mean = aaply(ozone, 1, mean)
+longitude.mean = aaply(ozone, 2, mean)
+time.mean = aaply(ozone, 3, mean)
+longitude = seq(along=longitude.mean)
+qplot(x = longitude,
+      y = longitude.mean,
+      ylab = "mean ozone level",
+      geom = "line")
